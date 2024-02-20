@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nama_album');
             $table->text('deskripsi');
             $table->date('tanggal_dibuat');
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamp('failed_at')->useCurrent();
         });
     }

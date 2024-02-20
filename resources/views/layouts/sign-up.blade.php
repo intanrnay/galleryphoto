@@ -35,38 +35,75 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
               <div class="card card-plain">
                 <div class="card-header">
-                  <h4 class="font-weight-bolder">Sign Up</h4>
+                  <h4 class="font-weight-bolder">REGISTRATION</h4>
                   <p class="mb-0">Enter your email and password to register</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form action="/sign-up" method="post">
+                    @csrf
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" name="fullname" class="form-control @error('fullname') is-invalid @enderror" id="fullname" placeholder="Full Name" required value="{{  old('fullname') }}">
+                      <label class="form-label">Full Name</label>
+                      @error('fullname')
+                      <div class="invalid-feedback">
+                        {{  $message }}
+                      </div>
+                      @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control">
+                      <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nickname" required value="{{  old('name') }}">
+                      <label class="form-label">Nickname</label>
+                      @error('name')
+                      <div class="invalid-feedback">
+                        {{  $message }}
+                      </div>
+                      @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
+                      <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" required value="{{  old('address') }}">
+                      <label class="form-label">Address</label>
+                      @error('address')
+                      <div class="invalid-feedback">
+                        {{  $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{  old('username') }}">
+                      <label class="form-label">Username</label>
+                      @error('username')
+                      <div class="invalid-feedback">
+                        {{  $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" required value="{{  old('email') }}">
+                      <label class="form-label">Email address</label>
+                      @error('email')
+                      <div class="invalid-feedback">
+                        {{  $message }}
+                      </div>
+                      @enderror
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
                       <label class="form-label">Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-                    <div class="form-check form-check-info text-start ps-0">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                      <label class="form-check-label" for="flexCheckDefault">
-                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
-                      </label>
+                      @error('password')
+                      <div class="invalid-feedback">
+                        {{  $message }}
+                      </div>
+                      @enderror
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-primary btn-lg w-100 mt-4 mb-0 text-white">Sign Up</button>
+                      <button type="submit" class="btn btn-lg bg-primary btn-lg w-100 mt-4 mb-0 text-white">Register</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-2 text-sm mx-auto">
                     Already have an account?
-                    <a href="/sign-in" class="text-dark text-gradient font-weight-bold">Sign in</a>
+                    <a href="/sign-in" class="text-dark text-gradient font-weight-bold">Login</a>
                   </p>
                 </div>
               </div>

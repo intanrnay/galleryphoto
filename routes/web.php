@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SigninController;
+use App\Http\Controllers\SignupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,8 +39,8 @@ Route::get('/sign-up', function () {
     ]);
 });
 
-Route::get('/profile', function () {
-    return view('layouts.profile', [
-        "title" => "Profile"
-    ]);
-});
+
+Route::get('/sign-in', [SigninController::class, 'index']);
+
+Route::get('/sign-up', [SignupController::class, 'index']);
+Route::post('/sign-up', [SignupController::class, 'store']);

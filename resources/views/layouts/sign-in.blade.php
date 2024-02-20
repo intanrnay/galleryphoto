@@ -27,15 +27,18 @@
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
-        <!-- Navbar -->
-
-        <!-- End Navbar -->
       </div>
     </div>
   </div>
   <main class="main-content  mt-0">
     <div class="page-header align-items-start min-vh-100" style="background-image: url('./assets/img/39625.jpg');">
       <div class="container my-auto">
+        @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ session('success') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="row">
           <div class="col-lg-4 col-md-8 col-12 mx-auto border-radius-lg py-3 pe-1 shadow-gray-900">
             <div class="card  fadeIn3 fadeInBottom">
@@ -80,7 +83,7 @@
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?
-                    <a href="../pages/sign-up.html" class="text-info text-gradient font-weight-bold">Sign up</a>
+                    <a href="/sign-up" class="text-info text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </form>
               </div>
