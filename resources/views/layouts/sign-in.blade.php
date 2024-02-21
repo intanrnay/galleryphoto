@@ -34,7 +34,7 @@
     <div class="page-header align-items-start min-vh-100" style="background-image: url('./assets/img/39625.jpg');">
       <div class="container my-auto">
         @if(session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
           {{ session('success') }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -73,10 +73,6 @@
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label text-white">Password</label>
                     <input type="password" class="form-control">
-                  </div>
-                  <div class="form-check form-switch d-flex align-items-center mb-3">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label mb-0 ms-2 text-white" for="rememberMe">Remember me</label>
                   </div>
                   <div class="text-center">
                     <button type="button" class="btn bg-dark w-100 my-4 mb-2 text-white">Sign in</button>

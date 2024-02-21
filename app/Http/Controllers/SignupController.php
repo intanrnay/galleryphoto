@@ -25,14 +25,14 @@ class SignupController extends Controller
             'address' => 'required',
             'username' => ['required', 'min:7', 'max:15', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:7|max:11' 
+            'password' => 'required|min:7|max:15' 
         ]);
 
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
-        $request->session()->flash('success', 'Registration successfull! Welcome to the club!');
-        return redirect('/sign-in');
+        // $request->session()->flash('success', 'Registration successfull! Welcome to the club!');
+        return redirect('/sign-in')->with('success', 'Registration successfull! Welcome to the club!');
     }
 }

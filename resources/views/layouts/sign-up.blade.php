@@ -42,7 +42,7 @@
                   <form action="/sign-up" method="post">
                     @csrf
                     <div class="input-group input-group-outline mb-3">
-                      <input type="text" name="fullname" class="form-control @error('fullname') is-invalid @enderror" id="fullname" placeholder="Full Name" required value="{{  old('fullname') }}">
+                      <input type="text" name="fullname" class="form-control @error('fullname') is-invalid @enderror" id="fullname" required value="{{  old('fullname') }}">
                       <label class="form-label">Full Name</label>
                       @error('fullname')
                       <div class="invalid-feedback">
@@ -51,7 +51,7 @@
                       @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nickname" required value="{{  old('name') }}">
+                      <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" required value="{{  old('name') }}">
                       <label class="form-label">Nickname</label>
                       @error('name')
                       <div class="invalid-feedback">
@@ -60,7 +60,7 @@
                       @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" required value="{{  old('address') }}">
+                      <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" required value="{{  old('address') }}">
                       <label class="form-label">Address</label>
                       @error('address')
                       <div class="invalid-feedback">
@@ -69,7 +69,7 @@
                       @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{  old('username') }}">
+                      <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" required value="{{  old('username') }}">
                       <label class="form-label">Username</label>
                       @error('username')
                       <div class="invalid-feedback">
@@ -78,7 +78,7 @@
                       @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" required value="{{  old('email') }}">
+                      <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email" required value="{{  old('email') }}">
                       <label class="form-label">Email address</label>
                       @error('email')
                       <div class="invalid-feedback">
@@ -87,7 +87,7 @@
                       @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
+                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required>
                       <label class="form-label">Password</label>
                       @error('password')
                       <div class="invalid-feedback">
