@@ -10,7 +10,7 @@
   <title>
     Bluespace
   </title>
-  <!--     Fonts and icons     -->
+  {{-- <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -20,125 +20,245 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
-</head>
+  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" /> --}}
 
-<body class="bg-gray-200">
-  <div class="container position-sticky z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-      </div>
-    </div>
-  </div>
-  <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-100" style="background-image: url('./assets/img/39625.jpg');">
-      <div class="container my-auto">
-        @if(session()->has('success'))
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap')
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+    background-color: #eee;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to top, #fff 10%, rgba(6, 45, 172, 0.4) 90%) no-repeat
+}
+
+.wrapper {
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    box-shadow: 20px 20px 80px rgb(206, 206, 206)
+}
+
+.h2 {
+    font-family:  "Playfair Display", serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #050f97;
+    font-style: italic
+}
+
+.h4 {
+    font-family: 'Poppins', sans-serif
+}
+
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #050f97;
+    color: #050f97
+}
+
+.input-field:hover {
+    color: #1e3168;
+    border: 1px solid #7b4ca0
+}
+
+input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0px 2px;
+    font-family: 'Poppins', sans-serif
+}
+
+.fa-eye-slash.btn {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+
+a {
+    text-decoration: none;
+    color: #400485;
+    font-weight: 700
+}
+
+a:hover {
+    text-decoration: none;
+    color: #7b4ca0
+}
+
+.option {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer
+}
+
+.option label.text-muted {
+    display: block;
+    cursor: pointer
+}
+
+.option input {
+    display: none
+}
+
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+.option input:checked~.checkmark:after {
+    display: block
+}
+
+.option .checkmark:after {
+    content: "";
+    width: 13px;
+    height: 13px;
+    display: block;
+    background: #400485;
+    position: absolute;
+    top: 48%;
+    left: 53%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out 0s
+}
+
+.option input[type="radio"]:checked~.checkmark {
+    background: #fff;
+    transition: 300ms ease-in-out 0s;
+    border: 1px solid #400485
+}
+
+.option input[type="radio"]:checked~.checkmark:after {
+    transform: translate(-50%, -50%) scale(1)
+}
+
+.btn.btn-block {
+    border-radius: 20px;
+    background-color: #131c9c;
+    color: #fff
+}
+
+.btn.btn-block:hover {
+    background-color: #1d5dd3e0
+}
+
+@media(max-width: 575px) {
+    .wrapper {
+        margin: 10px
+    }
+}
+
+@media(max-width:424px) {
+    .wrapper {
+        padding: 30px 10px;
+        margin: 5px
+    }
+
+    .option {
+        position: relative;
+        padding-left: 22px
+    }
+
+    .option label.text-muted {
+        font-size: 0.95rem
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 2px
+    }
+
+    .option .checkmark:after {
+        top: 50%
+    }
+
+    #forgot {
+        font-size: 0.95rem
+    }
+}
+</style>
+</head>
+<div class="page-header align-items-start min-vh-100">
+<body>
+@if(session()->has('success'))
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
           {{ session('success') }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
-        <div class="row">
-          <div class="col-lg-4 col-md-8 col-12 mx-auto border-radius-lg py-3 pe-1 shadow-gray-900">
-            <div class="card  fadeIn3 fadeInBottom">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <div class="bg-dark border-radius-lg py-3 pe-1">
-                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
-                  <div class="row mt-3">
-                    <div class="col-2 text-center ms-auto">
-                      <a class="btn btn-link px-3" href="javascript:;">
-                        <i class="fa fa-facebook text-white text-lg"></i>
-                      </a>
-                    </div>
-                    <div class="col-2 text-center px-1">
-                      <a class="btn btn-link px-3" href="javascript:;">
-                        <i class="fa fa-github text-white text-lg"></i>
-                      </a>
-                    </div>
-                    <div class="col-2 text-center me-auto">
-                      <a class="btn btn-link px-3" href="javascript:;">
-                        <i class="fa fa-google text-white text-lg"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body text-white">
-                <form role="form" class="text-start">
-                  <div class="input-group input-group-outline my-3">
-                    <label class="form-label text-white">Email</label>
-                    <input type="email" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label text-white">Password</label>
-                    <input type="password" class="form-control">
-                  </div>
-                  <div class="text-center">
-                    <button type="button" class="btn bg-dark w-100 my-4 mb-2 text-white">Sign in</button>
-                  </div>
-                  <p class="mt-4 text-sm text-center">
-                    Don't have an account?
-                    <a href="/sign-up" class="text-info text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </form>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-      {{-- <footer class="footer position-absolute bottom-2 py-2 w-100">
-        <div class="container">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-12 col-md-6 my-auto">
-              <div class="copyright text-center text-sm text-white text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold text-white" target="_blank">Magdalena</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-white" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-white" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-white" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-white" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer> --}}
-    </div>
-  </main>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.min.js?v=3.0.0"></script>
-</body>
+@endif
 
+@if(session()->has('loginError'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ session('loginError') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+@endif
+
+  {{-- @if($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      @foreach($errors->all() as $e)
+      {{ $e }}
+      @endforeach
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  @endif --}}
+  
+  <div class="wrapper bg-white">
+    <div class="h2 text-center">Bluespace</div>
+    <div class="h4 text-muted text-center pt-2">Enter your login details</div>
+    <form class="pt-3" action="/sign-in" method="post">
+      @csrf
+        <div class="form-group py-2">
+          <div class="input-field"> <span class="far fa-user p-2"></span>
+              <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email" placeholder="Username or Email Address" autofocus required value="{{ old('email') }}">
+              @error('email')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
+            </div>
+        </div>
+        <div class="form-group py-1 pb-2">
+            <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="password" placeholder="Enter your Password" class="" id="password" name="password" required>
+              {{-- <button class="btn bg-white text-muted"> <span class="far fa-eye-slash"></span> </button> --}}
+            </div>
+        </div>
+        <div class="d-flex align-items-start">
+            <div class="remember"> <label class="option text-muted"> Remember me <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div>
+            <div class="ml-auto"> <a href="#" id="forgot">Forgot Password?</a> </div>
+        </div> <button type="submit" class="btn btn-block text-center my-3">Log in</button>
+        <div class="text-center pt-3 text-muted">Not a member? <a href="/sign-up">Sign up</a></div>
+    </form>
+</div>
+<script type='text/javascript' src=''></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
 </html>

@@ -1,7 +1,6 @@
 @extends('main')
 
 @section('name')
-<div class="card">
+    Welcome
     
-</div>
 @endsection
