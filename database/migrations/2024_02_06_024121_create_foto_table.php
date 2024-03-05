@@ -20,7 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('album_id');
             $table->foreign('album_id')->references('id')->on('album');            
             $table->unsignedBigInteger('user_id');            
-            $table->foreign('user_id')->references('id')->on('users');   
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

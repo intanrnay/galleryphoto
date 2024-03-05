@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FotoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\SignupController;
 
@@ -40,6 +42,12 @@ Route::get('/sign-up', function () {
     ]);
 });
 
+Route::get('/creating', function () {
+    return view('pages.creating', [
+        "title" => "Create New Post"
+    ]);
+});
+
 
 Route::get('/sign-in', [SigninController::class, 'index'])->middleware('guest');
 Route::post('/sign-in', [SigninController::class, 'authenticate']);
@@ -48,3 +56,7 @@ Route::get('/sign-up', [SignupController::class, 'index']);
 Route::post('/sign-up', [SignupController::class, 'store']);
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::post('/upload/photo', [FotoController::class, 'upload'])->name('upload.photo');
+
+// Route::get('/creating', [PostController::class, 'index']);

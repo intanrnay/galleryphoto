@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/favicons.png')}}">
   <link rel="icon" type="image/png" href="{{asset('assets/img/favicons.png')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <title>
     Bluespace
   </title>
@@ -21,6 +22,7 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('assets/css/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css')}}">
+
 </head>
 
 <body class="g-sidenav-show bg-gray-400">
