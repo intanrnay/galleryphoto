@@ -2,10 +2,8 @@
 
 @section('content')
 
-<button type="button" class="post">
+<a type="button" class="post" href="/creating">
   <span>Create New Post</span>
-</button>
-
-
+</a>
 
 @endsection
