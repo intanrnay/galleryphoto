@@ -10,6 +10,7 @@ class FotoController extends Controller
     public function upload(Request $request)
 {
     // Validate the incoming request data
+    // dd($request);
     $request->validate([
         'lokasi_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // max file size 2MB
         'judul_foto' => 'required|string|max:255',
@@ -25,7 +26,7 @@ class FotoController extends Controller
         $filename = time() . '_' . $file->getClientOriginalName();
 
         // Move the uploaded file to the storage directory
-        $file->move(public_path('foto'), $filename);
+        $file->move(public_path('storage/foto'), $filename);
 
         // Create a new instance of the Foto model and save it to the database
         $foto = new Foto();

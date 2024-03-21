@@ -2,7 +2,7 @@
 
 @section('content')
 
-<button>
+<button type="button" class="post">
   <span>Create New Post</span>
 </button>
 
